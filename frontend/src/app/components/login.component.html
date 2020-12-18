@@ -1,0 +1,29 @@
+
+<div class="row mt-5">
+	<div class="col">
+		<h2>Please Login</h2>
+	</div>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onLogin()">
+	<div class="form-group">
+		<label for="title">Username</label>
+		<input id="title" class="form-control" type="text" placeholder="Username" formControlName="user_id"
+				[ngClass]="{'is-invalid': errorMessage}">
+		<div class="invalid-feedback" *ngIf="errorMessage">
+			{{ errorMessage }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" id="password" class="form-control" placeholder="Password" formControlName="password"
+				[ngClass]="{'is-invalid': errorMessage}">
+	</div>
+
+	<div class="d-flex justify-content-end align-items-center mt-4">
+		<button class="btn btn-lg btn-success" [disabled]="form.invalid">
+			<span style="margin-right: 5px;">Login</span>
+			<i class="fas fa-door-open"></i>
+		</button>
+	</div>
+</form>
